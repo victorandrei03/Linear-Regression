@@ -1,6 +1,4 @@
 function [Theta] = gradient_descent(FeatureMatrix, Y, n, m, alpha, iter)
-% In aceasta functie aplic formula descrisa in cerinta, h reprezentand valoarea
-% prezisa.
 
     Theta = zeros(n, 1);
 
