@@ -16,24 +16,13 @@ Following his research, Mihai decides to use **Multiple Linear Regression** to p
 
 A prediction can be written as a function:
 
-\[ h_{\theta}(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + ... + \theta_n x_n + \varepsilon \]
-
-Where:
-- **\( h_{\theta}(x) \)** is the predicted value based on features \( x_1, x_2, ..., x_n \)
-- **\( \theta_1, ..., \theta_n \)** are the model coefficients (weights)
-- **\( \theta_0 \)** is the intercept
-- **\( \varepsilon \)** is the prediction error
+![image](https://github.com/user-attachments/assets/34c5e952-f0a6-4035-9aea-3b031ad6c9ad)
 
 ## Cost Function
 
 To measure how well our model predicts values, we define the cost function:
 
-\[ J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} \left( h_{\theta}(x^{(i)}) - y^{(i)} \right)^2 \]
-
-Where:
-- **\( m \)** represents the number of training samples
-- **\( x^{(i)} \)** is the feature vector for training example \( i \)
-- **\( y^{(i)} \)** is the actual output for example \( i \)
+![image](https://github.com/user-attachments/assets/6cbe5096-5600-4349-8d83-086ab0ff0f1a)
 
 ## Optimization Algorithms
 
@@ -43,40 +32,19 @@ Mihai also discovers that optimization techniques can be used to determine the m
 
 Gradient Descent is an iterative optimization algorithm used to minimize the cost function by updating the parameters in the direction of the steepest descent, determined by the negative gradient.
 
-The update rule for the parameters is:
-
-\[ \theta_j := \theta_j - \alpha \frac{\partial J}{\partial \theta_j}, \quad \forall j \in \{0, 1, ..., n\} \]
-
-where \( \alpha \) is the learning rate, which controls the step size of the updates. The gradient of the cost function is given by:
-
-\[ \frac{\partial J}{\partial \theta_j} = \frac{1}{m} \sum_{i=1}^{m} \left( h_{\theta}(x^{(i)}) - y^{(i)} \right) x_j^{(i)} \]
-
-Thus, the parameters are updated as:
-
-\[ \theta_j := \theta_j - \alpha \frac{1}{m} \sum_{i=1}^{m} \left( h_{\theta}(x^{(i)}) - y^{(i)} \right) x_j^{(i)} \]
-
-This process is repeated until convergence.
+![image](https://github.com/user-attachments/assets/8bd5a5c5-e34e-4fa4-9359-08ac46b37773)
 
 ### Normal Equation
 
 The parameters can also be computed directly using the **Normal Equation**, which finds the optimal values by solving:
 
-\[ \theta = (X^T X)^{-1} X^T Y \]
+![image](https://github.com/user-attachments/assets/18f9c120-51cf-42a8-afe5-718d3720a81d)
 
 However, computing the inverse of a matrix can be costly for large datasets, making Gradient Descent preferable in such cases.
 
 ### Conjugate Gradient Method
 
-For large-scale problems, an alternative to direct inversion is the **Conjugate Gradient Method**, which iteratively solves \( X^T X \theta = X^T Y \) without explicitly computing \( (X^T X)^{-1} \). The algorithm follows these steps:
-
-1. Initialize \( \theta \) and compute the residual \( r_0 = X^T Y - X^T X \theta_0 \)
-2. Set the search direction \( p_0 = r_0 \)
-3. For each iteration:
-   - Compute step size \( \alpha_k \)
-   - Update parameters \( \theta_{k+1} = \theta_k + \alpha_k p_k \)
-   - Compute new residual and search direction
-
-This method is particularly useful for sparse and large-dimensional problems.
+![image](https://github.com/user-attachments/assets/3782ed16-a730-41aa-8b3b-dfda05061bd9)
 
 ![image](https://github.com/user-attachments/assets/36e32adc-0e05-4a6a-a10c-f700ab329a79)
 
@@ -93,11 +61,7 @@ To prevent **overfitting**, Mihai explores two regularization techniques:
 
 The cost functions for regularized regression are:
 
-- **Lasso Regression:**
-  \[ J_{L1}(\theta) = J(\theta) + \lambda \sum_{j=1}^{n} |\theta_j| \]
-
-- **Ridge Regression:**
-  \[ J_{L2}(\theta) = J(\theta) + \lambda \sum_{j=1}^{n} \theta_j^2 \]
+![image](https://github.com/user-attachments/assets/909430a5-ac80-4e33-bc52-85b9499e514e)
 
 where \( \lambda \) controls the strength of the regularization.
 
